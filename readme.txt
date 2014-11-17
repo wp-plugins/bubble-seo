@@ -22,7 +22,7 @@ It is the easiest and quickest way to set up your SEO code, many other plugin bu
 Bubble SEO is fast and exactly what you need for SEO your website, SEO also can view from the Administration Panel.
 One of the main features of this plugin is its speed and efficiency in the search engine robot that captures your links.
 <br />
-<blockquote><p>Optmizacion and Efficient SEO</p></blockquote>
+<blockquote><p>Efficient and Optimization SEO</p></blockquote>
 <br />
 Options plugin:
 <br />
