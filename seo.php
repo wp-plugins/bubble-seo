@@ -128,7 +128,8 @@ class ilen_seo extends ilen_seo_make{
 <meta property='og:title' content='".get_bloginfo('name')."' />
 <meta property='og:description' content='$ilen_seo->meta_description' />
 <meta property='og:url' content='".get_bloginfo('url')."' />
-<meta property='og:type' content='article' />
+<meta property='og:type' content='website' />
+<meta property='og:locale' content='".get_locale()."' />
 <meta property='og:site_name' content='".get_bloginfo( 'name' )."' />\n";
 
       }
@@ -149,7 +150,8 @@ class ilen_seo extends ilen_seo_make{
         $meta_facebook = "<!-- open Graph data -->
 <meta property='og:title' content='".($tag)."' />
 <meta property='og:url' content='".get_tag_link( $tag_id )."' />
-<meta property='og:type' content='article' />
+<meta property='og:type' content='website' />
+<meta property='og:locale' content='".get_locale()."' />
 <meta property='article:section' content='".($tag)."' />
 <meta property='og:site_name' content='".get_bloginfo( 'name' )."' />\n";
 
@@ -212,7 +214,8 @@ class ilen_seo extends ilen_seo_make{
 <meta property='og:title' content='".get_the_title()."' />
 <meta property='og:description' content='$content' />
 <meta property='og:url' content='".get_permalink()."' />
-<meta property='og:type' content='article' />
+<meta property='og:type' content='website' />
+<meta property='og:locale' content='".get_locale()."' />
 <meta property='og:image' content='".$image_post['src']."' />
 <meta property='article:section' content='$categories_string' />$tags_string
 <meta property='og:site_name' content='".get_bloginfo( 'name' )."' />\n";
@@ -240,7 +243,8 @@ class ilen_seo extends ilen_seo_make{
 <meta property='og:title' content='".($category_name)."' />
 <meta property='og:description' content='$category_desc' />
 <meta property='og:url' content='".get_category_link( $category_id )."' />
-<meta property='og:type' content='article' />
+<meta property='og:type' content='website' />
+<meta property='og:locale' content='".get_locale()."' />
 <meta property='article:section' content='".($category_name)."' />
 <meta property='og:site_name' content='".get_bloginfo( 'name' )."' />\n";
 
@@ -282,7 +286,8 @@ class ilen_seo extends ilen_seo_make{
 <meta property='og:title' content='".($authordata->display_name)."' />
 <meta property='og:description' content='$meta_description' />
 <meta property='og:url' content='".get_author_posts_url( $authordata->ID )."' />
-<meta property='og:type' content='article' />
+<meta property='og:type' content='website' />
+<meta property='og:locale' content='".get_locale()."' />
 <meta property='og:site_name' content='".get_bloginfo( 'name' )."' />\n";
 
       }
@@ -317,7 +322,7 @@ class ilen_seo extends ilen_seo_make{
 
     }
  
-    echo "<!-- Bubble SEO -->\n".$meta_description.$meta_keyword.$meta_facebook.$meta_twitter.$meta_google."<!-- /Bubble SEO -->\n";
+    echo "<!-- This site is optimized with the WordPress Bubble SEO  plugin v".$this->parameter['version']."- https://wordpress.org/plugins/bubble-seo/  -->\n".$meta_description.$meta_keyword.$meta_facebook.$meta_twitter.$meta_google."<!-- /Bubble SEO -->\n";
 
   }
 
