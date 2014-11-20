@@ -3,7 +3,7 @@
 Plugin Name: Bubble SEO
 Plugin URI: 
 Description: It's time to have a good and fast SEO (Pure SEO)
-Version: 1.2
+Version: 1.3
 Author: iLen
 Author URI:  
 */
@@ -27,12 +27,12 @@ class ilen_seo extends ilen_seo_make{
 
       if( TRUE ){
 
-        if ( ! has_filter( 'wp_title', array( __CLASS__,'getRealTitle')) ){
-          add_filter( 'wp_title', array( __CLASS__,'getRealTitle'), 10 );
+        if ( ! has_filter( 'wp_title', array( &$this,'getRealTitle')) ){
+          add_filter( 'wp_title', array( &$this,'getRealTitle'), 10 );
         }
 
         // add meta tags
-        add_action('wp_head', array( __CLASS__ , 'getMetaTags'), 0 );
+        add_action('wp_head', array( &$this , 'getMetaTags'), 0 );
 
         // remove Wordpress generator (as options)
         if( isset($ilen_seo->remove_link_wp_generator) && $ilen_seo->remove_link_wp_generator ){
@@ -322,7 +322,7 @@ class ilen_seo extends ilen_seo_make{
 
     }
  
-    echo "<!-- This site is optimized with the WordPress Bubble SEO  plugin v".$this->parameter['version']."- https://wordpress.org/plugins/bubble-seo/  -->\n".$meta_description.$meta_keyword.$meta_facebook.$meta_twitter.$meta_google."<!-- /Bubble SEO -->\n";
+    echo "<!-- This site is optimized with the WordPress Bubble SEO  plugin v". $this->parameter['version'] ."- https://wordpress.org/plugins/bubble-seo/  -->\n".$meta_description.$meta_keyword.$meta_facebook.$meta_twitter.$meta_google."<!-- /Bubble SEO -->\n";
 
   }
 

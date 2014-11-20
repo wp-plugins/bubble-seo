@@ -52,6 +52,11 @@ Use <code>iLenFramework</code> ;)
 
 
 == Changelog ==
+= 1.3 =
+* Fixed code.
+* Fixed error $this in main files.
+* Add recommendation for SEO.
+* Minus Fixed in code.
 = 1.2 =
 * Fixed preview code with update change before
 = 1.1 =

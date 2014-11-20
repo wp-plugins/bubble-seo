@@ -38,7 +38,7 @@ class ilen_seo_make{
                                  'name_option'    =>'bubble_seo',
                                  'name_plugin_url'=>'bubble-seo',
                                  'descripcion'    =>'',
-                                 'version'        =>'1.2',
+                                 'version'        =>'1.3',
                                  'url'            =>'',
                                  'logo'           =>'<i class="fa fa-line-chart" style="padding: 13px;color: #9B9B9B;"></i>', // or image .jpg,png
                                  'logo_text'      =>'', // alt of image
@@ -358,6 +358,18 @@ class ilen_seo_make{
                                                                     'name'  =>$this->parameter['name_option'].'_'.'preview',
                                                                     'class' =>'',
                                                                     'row'   =>array('a','c')),
+
+
+                                                            array(  'title' =>__('Recommendation',$this->parameter['name_option']),
+                                                                    'help'  =>__('',$this->parameter['name_option']),
+                                                                    'type'  =>'html',
+                                                                    'value' =>'',
+                                                                    'id'    =>$this->parameter['name_option'].'_'.'recommendation',
+                                                                    'name'  =>$this->parameter['name_option'].'_'.'recommendation',
+                                                                    'class' =>'',
+                                                                    'html2' => '<strong style="font-size:15px;font-weight:bold;">Recommendation (optional)</strong><br />Go to your theme folder, find the <code>header.php</code> file and in that file look for the function <code>&lt;?php wp_head(); ?></code>, Cut it and place it just below the <code>&lt;title></code> tag. The SEO will be much faster for search engines ;)',
+                                                                    'row'   =>array('a','c')),
+  
   
 
                                                             )
