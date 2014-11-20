@@ -47,7 +47,7 @@ class ilen_seo_make{
                                  'theme_imagen'   =>plugins_url()."/bubble-seo/assets/images",
                                  'languages'      =>plugins_url()."/bubble-seo/assets/languages",
                                  'twitter'        => '',
-                                 'wp_review'      => '',
+                                 'wp_review'      => 'http://wordpress.org/support/view/plugin-reviews/bubble-seo?filter=5',
                                  'type'           =>'plugin',
                                  'method'         =>'free',
                                  'themeadmin'     =>'fresh');
