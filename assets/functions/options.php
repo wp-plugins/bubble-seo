@@ -38,7 +38,7 @@ class ilen_seo_make{
                                  'name_option'    =>'bubble_seo',
                                  'name_plugin_url'=>'bubble-seo',
                                  'descripcion'    =>'',
-                                 'version'        =>'1.1',
+                                 'version'        =>'1.2',
                                  'url'            =>'',
                                  'logo'           =>'<i class="fa fa-line-chart" style="padding: 13px;color: #9B9B9B;"></i>', // or image .jpg,png
                                  'logo_text'      =>'', // alt of image
@@ -491,7 +491,8 @@ class ilen_seo_make{
 <meta property='og:title' content='".get_the_title()."' />
 <meta property='og:description' content='$meta_description' />
 <meta property='og:url' content='".get_permalink()."' />
-<meta property='og:type' content='article' />
+<meta property='og:type' content='website' />
+<meta property='og:locale' content='".get_locale()."' />
 <meta property='og:image' content='".$image_post['src']."' />
 <meta property='article:section' content='$categories_string' />$tags_string
 <meta property='og:site_name' content='".get_bloginfo( 'name' )."' />\n";
