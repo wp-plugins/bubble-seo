@@ -38,7 +38,7 @@ class ilen_seo_make{
                                  'name_option'    =>'bubble_seo',
                                  'name_plugin_url'=>'bubble-seo',
                                  'descripcion'    =>'',
-                                 'version'        =>'1.4',
+                                 'version'        =>'1.5',
                                  'url'            =>'',
                                  'logo'           =>'<i class="fa fa-line-chart" style="padding: 13px;color: #9B9B9B;"></i>', // or image .jpg,png
                                  'logo_text'      =>'', // alt of image
@@ -456,12 +456,11 @@ class ilen_seo_make{
       $meta_description = $ilen_seo->meta_description;
 
 
-      $excert  = strip_tags(strip_shortcodes(trim( $post->post_content  )));
+      $excert  = strip_shortcodes(strip_tags(trim( $post->post_content  )));
       $excert1 = preg_replace('/\s\s+/', ' ', $excert);  
-      $content = substr(trim( $excert1 ),0,155)."...";
-      $meta_description = trim(preg_replace('/\s+/', ' ', $content));
-      $meta_description = str_replace(array("\n","\r\n","\r"), '', $meta_description).
-
+      $excert2 = IF_removeShortCode( $excert1 );
+      $content = substr(trim( $excert2 ),0,155)."...";
+      $meta_description = $content;
       $tags_string = "";
       $categories_string = "";
 

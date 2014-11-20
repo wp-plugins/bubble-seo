@@ -3,7 +3,7 @@
 Plugin Name: Bubble SEO
 Plugin URI: 
 Description: It's time to have a good and fast SEO (Pure SEO)
-Version: 1.4
+Version: 1.5
 Author: iLen
 Author URI:  
 */

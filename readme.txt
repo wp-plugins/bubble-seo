@@ -9,7 +9,7 @@ Author: iLen
 Requires at least: 3.0
 Tested up to: 4.0
 Stable tag:1.0
-Version: 1.4
+Version: 1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,6 +52,8 @@ Use <code>iLenFramework</code> ;)
 
 
 == Changelog ==
+= 1.5 =
+* Fixed preview code with update change before
 = 1.4 =
 * Remove shortcode text in meta description
 * Update <code>iLenFramework</code> 1.6.7
