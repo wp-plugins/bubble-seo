@@ -1,13 +1,13 @@
 <?php 
 /**
- * iLenFramework 1.6.6
+ * iLenFramework 1.6.7
  * @package ilentheme
  */
 
 // REQUIRED FILES TO RUN
-if ( !class_exists('ilen_framework_1_6_6') ) {
+if ( !class_exists('ilen_framework_1_6_7') ) {
 
-class ilen_framework_1_6_6 {
+class ilen_framework_1_6_7 {
 
 		var $options		   	= array();
 		var $parameter 			= array();
@@ -2242,5 +2242,5 @@ if( isset($IF_CONFIG->components) && ! is_array($IF_CONFIG->components) ){
 
 global $IF;
 $IF = null;
-$IF = new ilen_framework_1_6_6;
+$IF = new ilen_framework_1_6_7;
 ?>

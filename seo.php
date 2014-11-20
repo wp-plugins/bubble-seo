@@ -3,7 +3,7 @@
 Plugin Name: Bubble SEO
 Plugin URI: 
 Description: It's time to have a good and fast SEO (Pure SEO)
-Version: 1.3
+Version: 1.4
 Author: iLen
 Author URI:  
 */
@@ -168,9 +168,10 @@ class ilen_seo extends ilen_seo_make{
 
     }elseif( is_singular() ){
 
-      $excert  = strip_tags(strip_shortcodes(trim( $post->post_content  )));
+      $excert  = strip_shortcodes(strip_tags(trim( $post->post_content  )));
       $excert1 = preg_replace('/\s\s+/', ' ', $excert);  
-      $content = substr(trim( $excert1 ),0,155)."...";
+      $excert2 = IF_removeShortCode( $excert1 );
+      $content = substr(trim( $excert2 ),0,155)."...";
       $meta_description = $content;
 
       $tags_string = "";
@@ -427,8 +428,6 @@ class ilen_seo extends ilen_seo_make{
 
   }
 
-
-  
 
 
 
