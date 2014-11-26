@@ -52,6 +52,8 @@ Use <code>iLenFramework</code> ;) and <strong>RTL ready!</strong>
 
 
 == Changelog ==
+= 1.8 =
+* Fixed code
 = 1.7 =
 * Update core <code>iLenFramework 1.7.2</code>
 = 1.5.1 =
