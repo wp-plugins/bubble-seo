@@ -3,13 +3,13 @@
 Contributors: iLenStudio
 Plugin Name: Bubble SEO
 Plugin URI:
-Tags:  seo,pure seo,fast seo,ilen seo,ilen,all seo pack,all seo,seo ultimated,seo google, seo facebook,seo twitter, seo google plus,seo quick,best seo,google,facebook,twitter,google,real seo,seo wp,wordpress seo, seo wordpress,Bubble SEO
+Tags:  seo,pure seo,fast seo,ilen seo,ilen,all seo pack,all seo,seo ultimated,seo google, seo facebook,seo twitter, seo google plus,seo quick,best seo,google,facebook,twitter,google,real seo,seo wp,wordpress seo, seo wordpress,Bubble SEO,rtl,plugin rtl
 Author URI: 
 Author: iLen
 Requires at least: 3.0
 Tested up to: 4.0
 Stable tag:1.5
-Version: 1.5.1
+Version: 1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,7 +39,7 @@ Options plugin:
 </ul>
 <br />
 
-Use <code>iLenFramework</code> ;)
+Use <code>iLenFramework</code> ;) and <strong>RTL ready!</strong>
 
 == Installation ==
 

@@ -38,7 +38,7 @@ class ilen_seo_make{
                                  'name_option'    =>'bubble_seo',
                                  'name_plugin_url'=>'bubble-seo',
                                  'descripcion'    =>'',
-                                 'version'        =>'1.5.1',
+                                 'version'        =>'1.6',
                                  'url'            =>'',
                                  'logo'           =>'<i class="fa fa-line-chart" style="padding: 13px;color: #9B9B9B;"></i>', // or image .jpg,png
                                  'logo_text'      =>'', // alt of image
@@ -48,6 +48,7 @@ class ilen_seo_make{
                                  'languages'      =>plugins_url()."/bubble-seo/assets/languages",
                                  'twitter'        => '',
                                  'wp_review'      => 'http://wordpress.org/support/view/plugin-reviews/bubble-seo?filter=5',
+                                 'wp_support'     => 'https://wordpress.org/support/plugin/bubble-seo',
                                  'type'           =>'plugin',
                                  'method'         =>'free',
                                  'themeadmin'     =>'fresh');
