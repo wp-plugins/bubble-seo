@@ -8,11 +8,11 @@ Author URI:
 Author: iLen
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag:1.5
-Version: 1.8.1
+Stable tag:1.8
+Version: 1.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5ZHACVPGAD6DA
 
 It's time to have a good and fast SEO (Pure SEO)
 
@@ -52,6 +52,8 @@ Use <code>iLenFramework</code> ;) and <strong>RTL ready!</strong>
 
 
 == Changelog ==
+= 1.9 =
+Add button 'DONATE'
 = 1.8.1 =
 * Update core <code>iLenFramework 1.7.3</code>
 = 1.8 =
