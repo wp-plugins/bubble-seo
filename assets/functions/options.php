@@ -14,6 +14,8 @@ class ilen_seo_make{
  
     function __construct(){
 
+        global $if_utils;
+
         if( is_admin() ){
             add_action('admin_footer',  array( &$this , 'getMetaTagsTest'));
             //self::getMetaTagsTest();
@@ -25,7 +27,7 @@ class ilen_seo_make{
 
         global $ilen_seo;
         // get option plugin ;)
-        $ilen_seo = IF_get_option( $this->parameter['name_option'] );
+        $ilen_seo = $if_utils->IF_get_option( $this->parameter['name_option'] );
     }
 
     function getHeaderPlugin(){
@@ -38,7 +40,7 @@ class ilen_seo_make{
                                  'name_option'    =>'bubble_seo',
                                  'name_plugin_url'=>'bubble-seo',
                                  'descripcion'    =>'',
-                                 'version'        =>'1.9',
+                                 'version'        =>'2.0',
                                  'url'            =>'',
                                  'logo'           =>'<i class="fa fa-line-chart" style="padding: 13px;color: #9B9B9B;"></i>', // or image .jpg,png
                                  'logo_text'      =>'', // alt of image
@@ -52,7 +54,8 @@ class ilen_seo_make{
                                  'link_donate'    => 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5ZHACVPGAD6DA',
                                  'type'           =>'plugin',
                                  'method'         =>'free',
-                                 'themeadmin'     =>'fresh');
+                                 'themeadmin'     =>'fresh',
+                                 'scripts_admin'  =>array( 'page' => array('bubble-seo' => array('jquery_ui_reset','enhancing_code')), ));
     }
 
     function getOptionsPlugin(){
@@ -395,7 +398,7 @@ class ilen_seo_make{
 
   function getMetaTagsTest(){
 
-    global $ilen_seo;
+    global $ilen_seo,$if_utils;
 
     $featured_args = array(
        'posts_per_page'      => 1,
@@ -460,7 +463,7 @@ class ilen_seo_make{
 
       $excert  = strip_shortcodes(strip_tags(trim( $post->post_content  )));
       $excert1 = preg_replace('/\s\s+/', ' ', $excert);  
-      $excert2 = IF_removeShortCode( $excert1 );
+      $excert2 = $if_utils->IF_removeShortCode( $excert1 );
       $content = substr(trim( $excert2 ),0,155)."...";
       $meta_description = $content;
       $tags_string = "";
@@ -499,7 +502,7 @@ class ilen_seo_make{
 
         }
  
-        $image_post = IF_get_image('medium');
+        $image_post = $if_utils->IF_get_image('medium');
         $meta_facebook = "<!-- open graph data -->
 <meta property='og:title' content='".get_the_title()."' />
 <meta property='og:description' content='$meta_description' />

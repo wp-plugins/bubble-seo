@@ -3,17 +3,19 @@
 Plugin Name: Bubble SEO
 Plugin URI: 
 Description: It's time to have a good and fast SEO (Pure SEO)
-Version: 1.9
+Version: 2.0
 Author: iLen
 Author URI:  
 */
 if ( !class_exists('ilen_seo') ) {
-require_once  plugin_dir_path( __FILE__ ).'/assets/ilenframework/assets/lib/utils.php';
-require_once 'assets/functions/options.php';
+
+require_once 'assets/ilenframework/assets/lib/utils.php'; // get utils
+require_once 'assets/functions/options.php'; // get options plugins
+
 class ilen_seo extends ilen_seo_make{
 
   function __construct(){
-
+    global $if_utils;
     parent::__construct(); // configuration general
 
     global $ilen_seo;
@@ -79,7 +81,7 @@ class ilen_seo extends ilen_seo_make{
 
   function getMetaTags(){
 
-    global $ilen_seo, $post, $authordata;
+    global $ilen_seo, $post, $authordata, $if_utils;
 
     $meta_keyword        = null;
     $meta_description    = null;
@@ -102,11 +104,13 @@ class ilen_seo extends ilen_seo_make{
           $tags_to_metakeyword = implode(",",$tags);
         }
 
-        $meta_keyword = "<meta name='keywords' content='{$tags_to_metakeyword}' />\n";
+        $meta_keyword = '<meta name="keywords" content="'.$tags_to_metakeyword.'" />
+        ';
 
       }else{
 
-        $meta_keyword = "<meta name='keywords' content='$ilen_seo->meta_keywork' />\n";
+        $meta_keyword = '<meta name="keywords" content="'.$ilen_seo->meta_keywork.'" />
+        ';
 
       }
 
@@ -120,26 +124,29 @@ class ilen_seo extends ilen_seo_make{
 
     }elseif( is_home() ){
 
-      $meta_description = $ilen_seo->meta_description;
+      $meta_description = mb_substr($ilen_seo->meta_description,0,155,'utf-8');
 
       if( isset( $ilen_seo->facebook_open_graph ) && $ilen_seo->facebook_open_graph ){
 
-        $meta_facebook = "<!-- open Graph data -->
-<meta property='og:title' content='".get_bloginfo('name')."' />
-<meta property='og:description' content='$ilen_seo->meta_description' />
-<meta property='og:url' content='".get_bloginfo('url')."' />
-<meta property='og:type' content='website' />
-<meta property='og:locale' content='".get_locale()."' />
-<meta property='og:site_name' content='".get_bloginfo( 'name' )."' />\n";
+$meta_facebook = '
+<!-- open Graph data -->
+<meta property="og:title" content="'.get_bloginfo('name').'" />
+<meta property="og:description" content="'.$meta_description.'" />
+<meta property="og:url" content="'.get_bloginfo('url').'" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="'.get_locale().'" />
+<meta property="og:site_name" content="'.get_bloginfo( 'name' ).'" />
+';
 
       }
 
       if( isset( $ilen_seo->twitter_user ) && $ilen_seo->twitter_user ){
-      $meta_twitter= "<!-- twitter Card data -->
-<meta name='twitter:card' content='summary' />
-<meta name='twitter:site' content='@$ilen_seo->twitter_user' />
-<meta name='twitter:title' content='".get_bloginfo('name')."' />
-<meta name='twitter:description' content='$ilen_seo->meta_description' />\n";
+      $meta_twitter= '<!-- twitter Card data -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content=@"'.$ilen_seo->twitter_user.'" />
+<meta name="twitter:title" content="'.get_bloginfo('name').'" />
+<meta name="twitter:description" content="'.$meta_description.'" />
+';
       }
     }elseif( is_tag() ){
   
@@ -147,21 +154,24 @@ class ilen_seo extends ilen_seo_make{
 
         $tag = ucfirst(single_tag_title("", false));
         $tag_id = get_query_var('tag_id');
-        $meta_facebook = "<!-- open Graph data -->
-<meta property='og:title' content='".($tag)."' />
-<meta property='og:url' content='".get_tag_link( $tag_id )."' />
-<meta property='og:type' content='website' />
-<meta property='og:locale' content='".get_locale()."' />
-<meta property='article:section' content='".($tag)."' />
-<meta property='og:site_name' content='".get_bloginfo( 'name' )."' />\n";
+        $meta_facebook = '
+<!-- open Graph data -->
+<meta property="og:title" content="'.($tag).'" />
+<meta property="og:url" content="'.get_tag_link( $tag_id ).'" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="'.get_locale().'" />
+<meta property="article:section" content="'.($tag).'" />
+<meta property="og:site_name" content="'.get_bloginfo( 'name' ).'" />
+';
 
       }
 
       if( isset( $ilen_seo->twitter_user ) && $ilen_seo->twitter_user ){
-      $meta_twitter= "<!-- twitter Card data -->
-<meta name='twitter:card' content='summary' />
-<meta name='twitter:site' content='@$ilen_seo->twitter_user' />
-<meta name='twitter:title' content='$tag' />\n";
+      $meta_twitter= '<!-- twitter Card data -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@'.$ilen_seo->twitter_user.'" />
+<meta name="twitter:title" content="'.$tag.'" />
+';
       }
 
       $meta_description = "";
@@ -170,8 +180,8 @@ class ilen_seo extends ilen_seo_make{
 
       $excert  = strip_shortcodes(strip_tags(trim( $post->post_content  )));
       $excert1 = preg_replace('/\s\s+/', ' ', $excert);  
-      $excert2 = IF_removeShortCode( $excert1 );
-      $content = substr(trim( $excert2 ),0,155)."...";
+      $excert2 = $if_utils->IF_removeShortCode( $excert1 );
+      $content = mb_substr(trim( $excert2 ),0,155,'utf-8')."...";
       $meta_description = $content;
 
       $tags_string = "";
@@ -189,7 +199,8 @@ class ilen_seo extends ilen_seo_make{
               }
               if( is_array($tags) ){
                 foreach($tags as $tt){
-                    $tags_string .="\n<meta property='article:tag' content='$tt' />";
+                    $tags_string .='
+<meta property="article:tag" content="$tt" />';
                 }
                 $tags_string = "\n{$tags_string}\n";
               }
@@ -210,25 +221,28 @@ class ilen_seo extends ilen_seo_make{
 
         }
 
-        $image_post = IF_get_image('medium');
-        $meta_facebook = "<!-- open graph data -->
-<meta property='og:title' content='".get_the_title()."' />
-<meta property='og:description' content='$content' />
-<meta property='og:url' content='".get_permalink()."' />
-<meta property='og:type' content='website' />
-<meta property='og:locale' content='".get_locale()."' />
-<meta property='og:image' content='".$image_post['src']."' />
-<meta property='article:section' content='$categories_string' />$tags_string
-<meta property='og:site_name' content='".get_bloginfo( 'name' )."' />\n";
+        $image_post = $if_utils->IF_get_image('medium');
+        $meta_facebook = '
+<!-- open graph data -->
+<meta property="og:title" content="'.get_the_title().'" />
+<meta property="og:description" content="'.$content.'" />
+<meta property="og:url" content="'.get_permalink().'" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="'.get_locale().'" />
+<meta property="og:image" content="'.$image_post['src'].'" />
+<meta property="article:section" content="'.$categories_string.'" />
+<meta property="og:site_name" content="'.get_bloginfo( 'name' ).'" />
+';
 
       }
 
       if( isset( $ilen_seo->twitter_user ) && $ilen_seo->twitter_user ){
-      $meta_twitter= "<!-- twitter card data -->
-<meta name='twitter:card' content='summary' />
-<meta name='twitter:site' content='@$ilen_seo->twitter_user' />
-<meta name='twitter:title' content='".get_the_title()."' />
-<meta name='twitter:description' content='$content' />\n";
+      $meta_twitter= '<!-- twitter card data -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@'.$ilen_seo->twitter_user.'" />
+<meta name="twitter:title" content="'.get_the_title().'" />
+<meta name="twitter:description" content="'.$content.'" />
+';
       }
 
     }elseif( is_category() ){
@@ -240,23 +254,26 @@ class ilen_seo extends ilen_seo_make{
 
       if( isset( $ilen_seo->facebook_open_graph ) && $ilen_seo->facebook_open_graph ){
 
-        $meta_facebook = "<!-- open graph data -->
-<meta property='og:title' content='".($category_name)."' />
-<meta property='og:description' content='$category_desc' />
-<meta property='og:url' content='".get_category_link( $category_id )."' />
-<meta property='og:type' content='website' />
-<meta property='og:locale' content='".get_locale()."' />
-<meta property='article:section' content='".($category_name)."' />
-<meta property='og:site_name' content='".get_bloginfo( 'name' )."' />\n";
+        $meta_facebook = '
+<!-- open graph data -->
+<meta property="og:title" content="'.($category_name).'" />
+<meta property="og:description" content="'.$category_desc.'" />
+<meta property="og:url" content="'.get_category_link( $category_id ).'" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="'.get_locale().'" />
+<meta property="article:section" content="'.($category_name).'" />
+<meta property="og:site_name" content="'.get_bloginfo( 'name' ).'" />
+';
 
       }
 
       if( isset( $ilen_seo->twitter_user ) && $ilen_seo->twitter_user ){
-      $meta_twitter= "<!-- twitter card data -->
-<meta name='twitter:card' content='summary' />
-<meta name='twitter:site' content='@$ilen_seo->twitter_user' />
-<meta name='twitter:title' content='".$category_name."' />
-<meta name='twitter:description' content='$category_desc' />\n";
+      $meta_twitter= '<!-- twitter card data -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@'.$ilen_seo->twitter_user.'" />
+<meta name="twitter:title" content="'.$category_name.'" />
+<meta name="twitter:description" content="'.$category_desc.'" />
+';
       }
 
     }elseif( is_search() ){
@@ -283,23 +300,26 @@ class ilen_seo extends ilen_seo_make{
 
       if( isset( $ilen_seo->facebook_open_graph ) && $ilen_seo->facebook_open_graph ){
 
-        $meta_facebook = "<!-- open graph data -->
-<meta property='og:title' content='".($authordata->display_name)."' />
-<meta property='og:description' content='$meta_description' />
-<meta property='og:url' content='".get_author_posts_url( $authordata->ID )."' />
-<meta property='og:type' content='website' />
-<meta property='og:locale' content='".get_locale()."' />
-<meta property='og:site_name' content='".get_bloginfo( 'name' )."' />\n";
+        $meta_facebook = '
+<!-- open graph data -->
+<meta property="og:title" content="'.($authordata->display_name).'" />
+<meta property="og:description" content="'.$meta_description.'" />
+<meta property="og:url" content="'.get_author_posts_url( $authordata->ID ).'" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="'.get_locale().'" />
+<meta property="og:site_name" content="'.get_bloginfo( 'name' ).'" />
+';
 
       }
 
       if( isset( $ilen_seo->twitter_user ) && $ilen_seo->twitter_user ){
 
-      $meta_twitter= "<!-- twitter card data -->
-<meta name='twitter:card' content='summary' />
-<meta name='twitter:site' content='@$ilen_seo->twitter_user' />
-<meta name='twitter:title' content='".($authordata->display_name)."' />
-<meta name='twitter:description' content='$meta_description' />\n";
+      $meta_twitter= '<!-- twitter card data -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@'.$ilen_seo->twitter_user.'" />
+<meta name="twitter:title" content="'.($authordata->display_name).'" />
+<meta name="twitter:description" content="'.$meta_description.'" />
+';
       }
       
 
@@ -313,17 +333,23 @@ class ilen_seo extends ilen_seo_make{
 
     if( $meta_description ){
 
-      $meta_description = "<meta name='description' content='$meta_description' />\n";
+      $meta_description = '
+<meta name="description" content="'.$meta_description.'" />';
 
     }
 
     if( isset($ilen_seo->google_publisher) && $ilen_seo->google_publisher ){
 
-        $meta_google = "<!-- google publisher -->\n<link href='$ilen_seo->google_publisher' rel=publisher />\n";
+        $meta_google = '<!-- google publisher -->
+<link href="'.$ilen_seo->google_publisher.'" rel="publisher" />
+';
 
     }
  
-    echo "<!-- This site is optimized with the WordPress Bubble SEO  plugin v". $this->parameter['version'] ."- https://wordpress.org/plugins/bubble-seo/  -->\n".$meta_description.$meta_keyword.$meta_facebook.$meta_twitter.$meta_google."<!-- /Bubble SEO -->\n";
+echo "\n<!-- This site is optimized with the WordPress Bubble SEO  plugin v". 
+$this->parameter['version'] .
+"- https://wordpress.org/plugins/bubble-seo/  -->"
+.$meta_description.$meta_keyword.$meta_facebook.$meta_twitter.$meta_google."<!-- /Bubble SEO -->\n\n";
 
   }
 

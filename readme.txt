@@ -7,9 +7,9 @@ Tags:  seo,pure seo,fast seo,ilen seo,ilen,all seo pack,all seo,seo ultimated,se
 Author URI: 
 Author: iLen
 Requires at least: 3.0
-Tested up to: 4.0
-Stable tag:1.8
-Version: 1.9
+Tested up to: 4.1
+Stable tag:2.0
+Version: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5ZHACVPGAD6DA
@@ -52,6 +52,9 @@ Use <code>iLenFramework</code> ;) and <strong>RTL ready!</strong>
 
 
 == Changelog ==
+= 2.0 =
+* Update core <code>iLenFramework 2.0</code>
+* Fix code in meta
 = 1.9 =
 Add button 'DONATE'
 = 1.8.1 =
