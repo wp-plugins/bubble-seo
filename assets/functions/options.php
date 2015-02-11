@@ -14,8 +14,6 @@ class ilen_seo_make{
  
     function __construct(){
 
-        global $if_utils;
-
         if( is_admin() ){
             add_action('admin_footer',  array( &$this , 'getMetaTagsTest'));
             //self::getMetaTagsTest();
@@ -25,7 +23,7 @@ class ilen_seo_make{
             self::parameters();
         }
 
-        global $ilen_seo;
+        global $ilen_seo,$if_utils;
         // get option plugin ;)
         $ilen_seo = $if_utils->IF_get_option( $this->parameter['name_option'] );
     }
