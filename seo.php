@@ -3,7 +3,7 @@
 Plugin Name: Bubble SEO
 Plugin URI: 
 Description: It's time to have a good and fast SEO (Pure SEO)
-Version: 2.0
+Version: 2.1
 Author: iLen
 Author URI:  
 */
@@ -221,7 +221,7 @@ $meta_facebook = '
 
         }
 
-        $image_post = $if_utils->IF_get_image('medium');
+        $image_post = $if_utils->IF_get_image('medium',null,$post->ID);
         $meta_facebook = '
 <!-- open graph data -->
 <meta property="og:title" content="'.get_the_title().'" />

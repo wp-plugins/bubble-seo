@@ -8,8 +8,8 @@ Author URI:
 Author: iLen
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag:2.0
-Version: 2.0
+Stable tag:2.1
+Version: 2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5ZHACVPGAD6DA
@@ -52,6 +52,8 @@ Use <code>iLenFramework</code> ;) and <strong>RTL ready!</strong>
 
 
 == Changelog ==
+= 2.1 =
+* Correction: a parameter that fantaba the function to image post for SEO is added, this is because updating the kernel.
 = 2.0 =
 * Update core <code>iLenFramework 2.0</code>
 * Fix code in meta
