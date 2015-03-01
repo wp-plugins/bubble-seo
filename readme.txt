@@ -17,6 +17,9 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 It's time to have a good and fast SEO (Pure SEO)
 
 == Description ==
+<blockquote>
+  <p>Support only <a href="http://support.ilentheme.com" target="_blank">HERE</a></p>
+</blockquote>
 <h3>Pure SEO (Organic, Social, Metadata, Web)</h3>
 It is the easiest and quickest way to set up your SEO code, many other plugin but all they do is to have so many options that confuse users, other plugin also generate a lot of resources in hosting.
 Bubble SEO is fast and exactly what you need for SEO your website, SEO also can view from the Administration Panel.
