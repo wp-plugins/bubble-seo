@@ -18,7 +18,7 @@ It's time to have a good and fast SEO (Pure SEO)
 
 == Description ==
 <blockquote>
-  <p>Support only <a href="http://support.ilentheme.com" target="_blank">HERE</a></p>
+  <p>Support for this plugin will only be served <a href="http://support.ilentheme.com" target="_blank">HERE</a></p>
 </blockquote>
 <h3>Pure SEO (Organic, Social, Metadata, Web)</h3>
 It is the easiest and quickest way to set up your SEO code, many other plugin but all they do is to have so many options that confuse users, other plugin also generate a lot of resources in hosting.
