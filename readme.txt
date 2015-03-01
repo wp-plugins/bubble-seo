@@ -3,7 +3,7 @@
 Contributors: iLenStudio
 Plugin Name: Bubble SEO
 Plugin URI:
-Tags:  seo,pure seo,fast seo,ilen seo,ilen,all seo pack,all seo,seo ultimated,seo google, seo facebook,seo twitter, seo google plus,seo quick,best seo,google,facebook,twitter,google,real seo,seo wp,wordpress seo, seo wordpress,Bubble SEO,rtl,plugin rtl
+Tags:  seo,pure seo,fast seo,ilen seo,ilen,all seo pack,all seo,seo ultimated,seo google, seo facebook,seo twitter, seo google plus,seo quick,best seo,google,facebook,twitter,google,real seo,seo wp,wordpress seo, seo wordpress,Bubble SEO,rtl,plugin rtl, bbpress, bbpress seo,seo for bbpress
 Author URI: 
 Author: iLen
 Requires at least: 3.8
@@ -28,7 +28,6 @@ One of the main features of this plugin is its speed and efficiency in the searc
 <blockquote><p>Efficient and Optimization SEO</p></blockquote>
 <br />
 Options plugin:
-<br />
 <ul>
 <li>SEO -Preview code</li>
 <li>Target Formats (home, page, post, archive, search ...)</li>
@@ -40,8 +39,6 @@ Options plugin:
 <li>Social SEO (facebook, twitter, google +)</li>
 <li>And much more ....</li>
 </ul>
-<br />
-
 Use <code>iLenFramework</code> ;) and <strong>RTL ready!</strong>
 
 == Installation ==
@@ -57,6 +54,7 @@ Use <code>iLenFramework</code> ;) and <strong>RTL ready!</strong>
 == Changelog ==
 = 2.3 =
 * Update link for support
+* BBpress Support SEO
 = 2.2 =
 * Update core <code>iLenFramework 2.0</code> minus fixed
 * Support BBpress
