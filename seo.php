@@ -3,7 +3,7 @@
 Plugin Name: Bubble SEO
 Plugin URI: 
 Description: It's time to have a good and fast SEO (Pure SEO)
-Version: 2.1
+Version: 2.2
 Author: iLen
 Author URI:  
 */
@@ -177,12 +177,28 @@ $meta_facebook = '
       $meta_description = "";
 
     }elseif( is_singular() ){
+        
+        if( $post->post_type == "forum" ){
+            $excert  = strip_shortcodes(strip_tags(trim( mb_substr($ilen_seo->meta_description,0,155,'utf-8') )));
+            $excert1 = preg_replace('/\s\s+/', ' ', $excert);  
+            $excert2 = $if_utils->IF_removeShortCode( $excert1 );
+            $content = mb_substr(trim( $excert2 ),0,155,'utf-8')."...";
+            $meta_description = $content;
+        }elseif( $post->post_type == "topic" ){
+            $excert  = strip_shortcodes(strip_tags(trim( bbp_get_topic_content() )));
+            $excert1 = preg_replace('/\s\s+/', ' ', $excert);  
+            $excert2 = $if_utils->IF_removeShortCode( $excert1 );
+            $content = mb_substr(trim( $excert2 ),0,155,'utf-8')."...";
+            $meta_description = $content;
+        }elseif( $post->post_type != "topic" && $post->post_type != "forum" ){
+            $excert  = strip_shortcodes(strip_tags(trim( $post->post_content  )));
+            $excert1 = preg_replace('/\s\s+/', ' ', $excert);  
+            $excert2 = $if_utils->IF_removeShortCode( $excert1 );
+            $content = mb_substr(trim( $excert2 ),0,155,'utf-8')."...";
+            $meta_description = $content;
+        }
+      
 
-      $excert  = strip_shortcodes(strip_tags(trim( $post->post_content  )));
-      $excert1 = preg_replace('/\s\s+/', ' ', $excert);  
-      $excert2 = $if_utils->IF_removeShortCode( $excert1 );
-      $content = mb_substr(trim( $excert2 ),0,155,'utf-8')."...";
-      $meta_description = $content;
 
       $tags_string = "";
       $categories_string = "";
