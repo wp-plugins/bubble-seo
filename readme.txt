@@ -9,7 +9,7 @@ Author: iLen
 Requires at least: 3.8
 Tested up to: 4.1
 Stable tag:2.2
-Version: 2.2
+Version: 2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5ZHACVPGAD6DA
@@ -52,6 +52,8 @@ Use <code>iLenFramework</code> ;) and <strong>RTL ready!</strong>
 
 
 == Changelog ==
+= 2.3 =
+* Update link for support
 = 2.2 =
 * Update core <code>iLenFramework 2.0</code> minus fixed
 * Support BBpress
