@@ -3,7 +3,7 @@
 Plugin Name: Bubble SEO
 Plugin URI: 
 Description: It's time to have a good and fast SEO (Pure SEO)
-Version: 2.6
+Version: 2.7
 Author: iLen
 Author URI:  
 */
@@ -263,10 +263,14 @@ $meta_facebook = '
 
     }elseif( is_category() ){
 
-      $category      = get_the_category();
-      $category_desc = $category[0]->description;
-      $category_name = ucfirst($category[0]->cat_name);
-      $category_id   = $category[0]->cat_ID;
+      $current_url = rtrim($_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"], "/");
+      $arr_current_url = explode("/", $current_url);
+      $thecategory = get_category_by_slug(end($arr_current_url));
+
+      //$category      = get_the_category();
+      $category_desc = $thecategory->description;
+      $category_name = $thecategory->name;
+      $category_id   = $thecategory->term_id;
 
       if( isset( $ilen_seo->facebook_open_graph ) && $ilen_seo->facebook_open_graph ){
 
@@ -406,9 +410,14 @@ $this->parameter['version'] .
 
     }elseif( is_category() ){
 
-      $category = get_the_category();
-      $category = $category[0]->cat_name;
       $title_format = $ilen_seo->category_title_format;
+
+      $current_url = rtrim($_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"], "/");
+      $arr_current_url = explode("/", $current_url);
+      $thecategory = get_category_by_slug(end($arr_current_url));
+
+      //$category      = get_the_category();
+      $category = $thecategory->name;
 
     }elseif( is_search() ){
 
