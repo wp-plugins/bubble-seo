@@ -143,7 +143,7 @@ $meta_facebook = '
       if( isset( $ilen_seo->twitter_user ) && $ilen_seo->twitter_user ){
       $meta_twitter= '<!-- twitter Card data -->
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content=@"'.$ilen_seo->twitter_user.'" />
+<meta name="twitter:site" content="@'.$ilen_seo->twitter_user.'" />
 <meta name="twitter:title" content="'.get_bloginfo('name').'" />
 <meta name="twitter:description" content="'.$meta_description.'" />
 ';
