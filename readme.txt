@@ -7,9 +7,9 @@ Tags:  seo,pure seo,fast seo,ilen seo,ilen,all seo pack,all seo,seo ultimated,se
 Author URI: 
 Author: iLen
 Requires at least: 3.8
-Tested up to: 4.1
-Stable tag:2.7
-Version: 2.7
+Tested up to: 4.2.1
+Stable tag:2.8
+Version: 2.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5ZHACVPGAD6DA
@@ -52,6 +52,9 @@ Use <code>iLenFramework</code> ;) and <strong>RTL ready!</strong>
 
 
 == Changelog ==
+= 2.8 =
+* Fixed meta description for character <code>" "</code>
+* Update core <code>iLenFramework 2.5</code>
 = 2.7 =
 * Fixed SEO in category without post
 * Fixed SEO in subcategory
