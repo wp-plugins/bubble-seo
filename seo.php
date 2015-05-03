@@ -3,7 +3,7 @@
 Plugin Name: Bubble SEO
 Plugin URI: https://wordpress.org/support/view/plugin-reviews/bubble-seo?filter=5
 Description: It's time to have a good and fast SEO (Pure SEO)
-Version: 2.8
+Version: 2.9
 Author: iLen
 Author URI: http://support.ilentheme.com
 */
@@ -183,19 +183,19 @@ $meta_facebook = '
             $excert1 = preg_replace('/\s\s+/', ' ', $excert);  
             $excert2 = $if_utils->IF_removeShortCode( $excert1 );
             $content = mb_substr(trim( $excert2 ),0,155,'utf-8')."...";
-            $meta_description = htmlspecialchars($content, ENT_QUOTES | ENT_HTML5);
+            $meta_description = htmlspecialchars($content, ENT_QUOTES | 'ENT_HTML5');
         }elseif( $post->post_type == "topic" ){
             $excert  = strip_shortcodes(strip_tags(trim( bbp_get_topic_content() )));
             $excert1 = preg_replace('/\s\s+/', ' ', $excert);  
             $excert2 = $if_utils->IF_removeShortCode( $excert1 );
             $content = mb_substr(trim( $excert2 ),0,155,'utf-8')."...";
-            $meta_description = htmlspecialchars($content, ENT_QUOTES | ENT_HTML5);
+            $meta_description = htmlspecialchars($content, ENT_QUOTES | 'ENT_HTML5');
         }elseif( $post->post_type != "topic" && $post->post_type != "forum" ){
             $excert  = strip_shortcodes(strip_tags(trim( $post->post_content  )));
             $excert1 = preg_replace('/\s\s+/', ' ', $excert);  
             $excert2 = $if_utils->IF_removeShortCode( $excert1 );
             $content = mb_substr(trim( $excert2 ),0,155,'utf-8')."...";
-            $meta_description = htmlspecialchars($content, ENT_QUOTES | ENT_HTML5);
+            $meta_description = htmlspecialchars($content, ENT_QUOTES | 'ENT_HTML5');
         }
       
 
@@ -315,7 +315,7 @@ $meta_facebook = '
     }elseif( is_author() ){
 
       if( $des_aut = get_the_author_meta( 'description', $authordata->ID ) ){
-        $meta_description = htmlspecialchars($des_aut, ENT_QUOTES | ENT_HTML5);  
+        $meta_description = htmlspecialchars($des_aut, ENT_QUOTES | 'ENT_HTML5');  
       }
 
       if( isset( $ilen_seo->facebook_open_graph ) && $ilen_seo->facebook_open_graph ){
@@ -354,7 +354,7 @@ $meta_facebook = '
     if( $meta_description ){
 
       $meta_description = '
-<meta name="description" content="'.htmlspecialchars($meta_description, ENT_QUOTES | ENT_HTML5).'" />';
+<meta name="description" content="'.htmlspecialchars($meta_description, ENT_QUOTES | 'ENT_HTML5').'" />';
 
     }
 

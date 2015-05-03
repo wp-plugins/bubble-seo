@@ -6,10 +6,10 @@ Plugin URI:
 Tags:  seo,pure seo,fast seo,ilen seo,ilen,all seo pack,all seo,seo ultimated,seo google, seo facebook,seo twitter, seo google plus,seo quick,best seo,google,facebook,twitter,google,real seo,seo wp,wordpress seo, seo wordpress,Bubble SEO,rtl,plugin rtl, bbpress, bbpress seo,seo for bbpress
 Author URI: 
 Author: iLen
-Requires at least: 3.8
+Requires at least: 3.9
 Tested up to: 4.2.1
-Stable tag:2.8
-Version: 2.8
+Stable tag:2.9
+Version: 2.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5ZHACVPGAD6DA
