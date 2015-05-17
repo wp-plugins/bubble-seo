@@ -37,6 +37,7 @@ Options plugin:
 <li>Remove Wordpress generator</li>
 <li>Use As keywork tags in post</li>
 <li>Social SEO (facebook, twitter, google +)</li>
+<li>Metabox custom metas for post and page</li>
 <li>And much more ....</li>
 </ul>
 Use <code>iLenFramework</code> ;) and <strong>RTL ready!</strong>
@@ -110,3 +111,4 @@ Add button 'DONATE'
 
 == Screenshots ==
 1. Show option plugin
+2. Metabox
