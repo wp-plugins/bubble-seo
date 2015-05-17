@@ -14,12 +14,14 @@ class ilen_seo_make{
  
     function __construct(){
 
-        if( is_admin() ){
-            add_action('admin_footer',  array( &$this , 'getMetaTagsTest'));
+        if( is_admin()){
+
+            if(  isset($_GET["page"]) && $_GET["page"] == 'bubble-seo' ){
+                add_action('admin_footer',  array( &$this , 'getMetaTagsTest'));    
+            }
             //self::getMetaTagsTest();
             self::configuration_plugin();
-        }
-        else{
+        }else{
             self::parameters();
         }
 
@@ -38,7 +40,7 @@ class ilen_seo_make{
                                  'name_option'    =>'bubble_seo',
                                  'name_plugin_url'=>'bubble-seo',
                                  'descripcion'    =>'',
-                                 'version'        =>'2.9',
+                                 'version'        =>'3.0',
                                  'url'            =>'',
                                  'logo'           =>'<i class="fa fa-line-chart" style="padding: 13px;color: #9B9B9B;"></i>', // or image .jpg,png
                                  'logo_text'      =>'', // alt of image
