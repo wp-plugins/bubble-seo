@@ -40,7 +40,7 @@ class ilen_seo_make{
                                  'name_option'    =>'bubble_seo',
                                  'name_plugin_url'=>'bubble-seo',
                                  'descripcion'    =>'',
-                                 'version'        =>'3.0',
+                                 'version'        =>'3.1',
                                  'url'            =>'',
                                  'logo'           =>'<i class="fa fa-line-chart" style="padding: 13px;color: #9B9B9B;"></i>', // or image .jpg,png
                                  'logo_text'      =>'', // alt of image
@@ -55,7 +55,11 @@ class ilen_seo_make{
                                  'type'           =>'plugin',
                                  'method'         =>'free',
                                  'themeadmin'     =>'fresh',
-                                 'scripts_admin'  =>array( 'page' => array('bubble-seo' => array('jquery_ui_reset','enhancing_code')), ));
+                                 'scripts_admin'  =>array( 'page'        => array('bubble-seo'  => array('jquery_ui_reset','enhancing_code')),
+                                                           'post_type'   => array('page'        => array('jquery_ui_reset'),
+                                                                                  'post'       => array('jquery_ui_reset')), 
+                                                         )
+                    );
     }
 
     function getOptionsPlugin(){

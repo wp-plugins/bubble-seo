@@ -9,7 +9,7 @@ Author: iLen
 Requires at least: 3.9
 Tested up to: 4.2.1
 Stable tag:2.9
-Version: 3.0
+Version: 3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5ZHACVPGAD6DA
@@ -53,6 +53,8 @@ Use <code>iLenFramework</code> ;) and <strong>RTL ready!</strong>
 
 
 == Changelog ==
+= 3.1 =
+* Fixed <code>options.php</code> add jQuery in type 'page' or 'post'
 = 3.0 =
 * Optimize code
 * add Metabox: Metabox Bubble seo (post and page)
