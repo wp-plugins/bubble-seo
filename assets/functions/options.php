@@ -40,7 +40,7 @@ class ilen_seo_make{
                                  'name_option'    =>'bubble_seo',
                                  'name_plugin_url'=>'bubble-seo',
                                  'descripcion'    =>'',
-                                 'version'        =>'3.2',
+                                 'version'        =>'3.2.1',
                                  'url'            =>'',
                                  'logo'           =>'<i class="fa fa-line-chart" style="padding: 13px 11px!important;color: #9B9B9B;"></i>', // or image .jpg,png
                                  'logo_text'      =>'', // alt of image
@@ -466,6 +466,19 @@ class ilen_seo_make{
     $meta_twitter        = null;
     $meta_google         = null;
 
+    // Get image post for social network
+    $image_post = null;
+    $image_post = ($if_utils->IF_get_image('medium',null,$post->ID));   
+ 
+    if( $image_post['src'] == null || !$image_post['src'] ){
+        if( isset($ilen_seo->default_image) && $ilen_seo->default_image ){
+            $image_post = $ilen_seo->default_image;
+        }
+    }else{
+        $image_post = $image_post['src'];
+    }
+
+
     if( (isset($ilen_seo->meta_keywork) && $ilen_seo->meta_keywork) || (   isset($ilen_seo->tag_keyword) && $ilen_seo->tag_keyword ) ){
 
       if( isset($ilen_seo->tag_keyword) && $ilen_seo->tag_keyword ){
@@ -538,16 +551,16 @@ class ilen_seo_make{
 
         }
  
-        $image_post = $if_utils->IF_get_image('medium');
+
         $meta_facebook = "<!-- open graph data -->
 <meta property='og:title' content='".get_the_title()."' />
 <meta property='og:description' content='$meta_description' />
 <meta property='og:url' content='".get_permalink()."' />
 <meta property='og:type' content='website' />
 <meta property='og:locale' content='".get_locale()."' />
-<meta property='og:image' content='".$image_post['src']."' />
 <meta property='article:section' content='$categories_string' />$tags_string
-<meta property='og:site_name' content='".get_bloginfo( 'name' )."' />\n";
+<meta property='og:site_name' content='".get_bloginfo( 'name' )."' />
+<meta property='og:image' content='$image_post' />\n";
  }
 
       if( isset( $ilen_seo->twitter_user ) && $ilen_seo->twitter_user ){
@@ -555,7 +568,8 @@ class ilen_seo_make{
 <meta name='twitter:card' content='summary' />
 <meta name='twitter:site' content='@$ilen_seo->twitter_user' />
 <meta name='twitter:title' content='".get_the_title()."' />
-<meta name='twitter:description' content='$meta_description' />\n";
+<meta name='twitter:description' content='$meta_description' />
+<meta name='twitter:image' content='$image_post' />\n";
       }
 
  
