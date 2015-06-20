@@ -6,10 +6,10 @@ Plugin URI:
 Tags:  seo,pure seo,fast seo,ilen seo,ilen,all seo pack,all seo,seo ultimated,seo google, seo facebook,seo twitter, seo google plus,seo quick,best seo,google,facebook,twitter,google,real seo,seo wp,wordpress seo, seo wordpress,Bubble SEO,rtl,plugin rtl, bbpress, bbpress seo,seo for bbpress
 Author URI: 
 Author: iLen
-Requires at least: 3.9
-Tested up to: 4.2.1
-Stable tag:2.9
-Version: 3.1
+Requires at least: 4.0
+Tested up to: 4.2.2
+Stable tag:3.1
+Version: 3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5ZHACVPGAD6DA
@@ -53,6 +53,10 @@ Use <code>iLenFramework</code> ;) and <strong>RTL ready!</strong>
 
 
 == Changelog ==
+= 3.2 =
+* add option 'Image home (logo)': The image to be displayed on social networks if you share your main url
+* add option 'Default image post': Default image in case there is no image in the post.
+* Minimal corrections of aesthetic.
 = 3.1 =
 * Fixed <code>options.php</code> add jQuery in type 'page' or 'post'
 = 3.0 =

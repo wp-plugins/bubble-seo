@@ -1936,11 +1936,11 @@ jQuery(".iaccordion-header").on("click",function(){
 							<div class="row upload <?php if(isset( $value['class'] )){ echo $value['class'];} ?>" <?php if(isset( $value['style'] )){ echo $value['style'];} ?> >
 								<div class="a"><?php echo $value['title']; ?><div class="help"><?php echo $value['help']; ?></div></div>
 								<div class="<?php echo $side_two; ?>">
-									<input id="<?php echo $value['id'] ?>" type="text" name="<?php echo $value['name'] ?>" value="<?php echo $options_theme[ $value['name'] ]; ?>" class="theme_src_upload"  />
+									<input id="<?php echo $value['id'] ?>" type="text" name="<?php echo $value['name'] ?>" value="<?php echo isset($options_theme[ $value['name'] ])?$options_theme[ $value['name'] ]:''; ?>" class="theme_src_upload"  />
 									<a class="upload_image_button button top-tip" data-tips="<?php _e('Select image',$this->parameter['name_option']) ?>" data-title="<?php echo $value['title'] ?>" data-button-set="<?php _e('Select image',$this->parameter['name_option']) ?>" > <i class="fa fa-cloud-upload"></i><?php _e('',$this->parameter['name_option']) ?></a>
 									<?php if(isset( $value['value'] ) && $value['value']) : ?><a class="upload_image_default button top-tip" data-tips="<?php _e('Use default',$this->parameter['name_option']) ?>" image-default="<?php echo $value['value']; ?>" > <i class="fa fa-repeat"></i><?php _e('',$this->parameter['name_option']) ?></a><?php endif; ?>
 									<div class="preview">
-										<?php  if( $options_theme[ $value['name'] ] ) : ?>
+										<?php  if( isset($options_theme[ $value['name'] ]) && $options_theme[ $value['name'] ] ) : ?>
 											<img src="<?php echo $options_theme[ $value['name'] ]; ?>" />
 											<span class='admin_delete_image_upload'>✕</span>
 										<?php endif; ?>

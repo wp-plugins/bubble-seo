@@ -3,7 +3,7 @@
 Plugin Name: Bubble SEO
 Plugin URI: https://wordpress.org/support/view/plugin-reviews/bubble-seo?filter=5
 Description: It's time to have a good and fast SEO (Pure SEO)
-Version: 3.1
+Version: 3.2
 Author: iLen
 Author URI: http://support.ilentheme.com
 */
@@ -98,6 +98,27 @@ function wp_generator() {
 		}
 	}
 
+	// Get image post for social network
+	$image_post = null;
+	if( is_single() ){
+
+		$image_post = ($if_utils->IF_get_image('medium',null,$post->ID));	
+
+		if( !$image_post['src'] ){
+			if( isset($ilen_seo->default_image) && $ilen_seo->default_image ){
+				$image_post = $ilen_seo->default_image;
+			}
+		}else{
+			$image_post = $image_post['src'];
+		}
+	}elseif( is_home() ){
+		if( isset($ilen_seo->home_image) && $ilen_seo->home_image ){
+				$image_post = $ilen_seo->home_image;
+		}
+	}
+	
+	
+
 	if( (isset($ilen_seo->meta_keywork) && $ilen_seo->meta_keywork) || ( is_singular() &&  isset($ilen_seo->tag_keyword) && $ilen_seo->tag_keyword ) || ( is_singular() && $meta_keyword_custom ) ){
 
 	  if( is_singular() && isset($ilen_seo->tag_keyword) && $ilen_seo->tag_keyword ){
@@ -153,6 +174,8 @@ $meta_facebook = '
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="'.get_locale().'" />
 <meta property="og:site_name" content="'.get_bloginfo( 'name' ).'" />
+<meta property="og:site_name" content="'.get_bloginfo( 'name' ).'" />
+<meta property="og:image" content="'.$image_post.'" />
 ';
 
 	  }
@@ -164,6 +187,7 @@ $meta_facebook = '
 <meta name="twitter:site" content="@'.$ilen_seo->twitter_user.'" />
 <meta name="twitter:title" content="'.get_bloginfo('name').'" />
 <meta name="twitter:description" content="'.$meta_description.'" />
+<meta name="twitter:image" content="'.$image_post.'" />
 ';
 	  }
 	}elseif( is_tag() ){
@@ -179,7 +203,8 @@ $meta_facebook = '
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="'.get_locale().'" />
 <meta property="article:section" content="'.($tag).'" />
-<meta property="og:site_name" content="'.get_bloginfo( 'name' ).'" />';
+<meta property="og:site_name" content="'.get_bloginfo( 'name' ).'" />
+<meta property="og:image" content="'.$image_post.'" />';
 
 	  }
 
@@ -189,6 +214,7 @@ $meta_facebook = '
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@'.$ilen_seo->twitter_user.'" />
 <meta name="twitter:title" content="'.$tag.'" />
+<meta name="twitter:image" content="'.$image_post.'" />
 ';
 	  }
 
@@ -271,7 +297,7 @@ $meta_facebook = '
 
 		}
 
-		$image_post = $if_utils->IF_get_image('medium',null,$post->ID);
+		
 		$meta_facebook = '
 <!-- open graph data -->
 <meta property="og:title" content="'.$meta_title_custom.'" />
@@ -279,7 +305,7 @@ $meta_facebook = '
 <meta property="og:url" content="'.get_permalink().'" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="'.get_locale().'" />
-<meta property="og:image" content="'.$image_post['src'].'" />
+<meta property="og:image" content="'.$image_post.'" />
 <meta property="article:section" content="'.$categories_string.'" />
 <meta property="og:site_name" content="'.get_bloginfo( 'name' ).'" />';
 
@@ -291,7 +317,8 @@ $meta_facebook = '
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@'.$ilen_seo->twitter_user.'" />
 <meta name="twitter:title" content="'.$meta_title_custom.'" />
-<meta name="twitter:description" content="'.$meta_description_custom.'" />';
+<meta name="twitter:description" content="'.$meta_description_custom.'" />
+<meta name="twitter:image" content="'.$image_post.'" />';
 		}
 
 	}elseif( is_category() ){
@@ -315,7 +342,8 @@ $meta_facebook = '
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="'.get_locale().'" />
 <meta property="article:section" content="'.($category_name).'" />
-<meta property="og:site_name" content="'.get_bloginfo( 'name' ).'" />';
+<meta property="og:site_name" content="'.get_bloginfo( 'name' ).'" />
+<meta property="og:image" content="'.$image_post.'" />';
 
 	  }
 
@@ -325,7 +353,8 @@ $meta_facebook = '
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@'.$ilen_seo->twitter_user.'" />
 <meta name="twitter:title" content="'.$category_name.'" />
-<meta name="twitter:description" content="'.$category_desc.'" />';
+<meta name="twitter:description" content="'.$category_desc.'" />
+<meta name="twitter:image" content="'.$image_post.'" />';
 	  }
 
 	}elseif( is_search() ){
@@ -360,6 +389,7 @@ $meta_facebook = '
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="'.get_locale().'" />
 <meta property="og:site_name" content="'.get_bloginfo( 'name' ).'" />
+<meta property="og:image" content="'.$image_post.'" />
 ';
 
 	  }
@@ -371,6 +401,7 @@ $meta_facebook = '
 <meta name="twitter:site" content="@'.$ilen_seo->twitter_user.'" />
 <meta name="twitter:title" content="'.($authordata->display_name).'" />
 <meta name="twitter:description" content="'.$meta_description.'" />
+<meta name="twitter:image" content="'.$image_post.'" />
 ';
 	  }
 	  
@@ -525,21 +556,26 @@ $this->parameter['version'] .
 
 
   
-  function script_and_style_admin(){
-	if( isset($_GET["page"]) &&  $_GET["page"] == $this->parameter["id_menu"] ){
-		wp_enqueue_script( 'admin-js-'.$this->parameter["name_option"], plugins_url('/assets/js/admin.js',__FILE__), array( 'jquery' ), $this->parameter['version'], true );
+	function script_and_style_admin(){
+		if( isset($_GET["page"]) &&  $_GET["page"] == $this->parameter["id_menu"] ){
+			wp_enqueue_script( 'admin-js-'.$this->parameter["name_option"], plugins_url('/assets/js/admin.js',__FILE__), array( 'jquery' ), $this->parameter['version'], true );
+		}
+
+		wp_register_style( 'admin-css-'.$this->parameter["name_option"], plugins_url('/assets/css/admin.css',__FILE__),'all',$this->parameter['version'] );
+		// Enqueue styles
+		wp_enqueue_style( 'admin-css-'.$this->parameter["name_option"] );
+
 	}
-  }
 
+	function script_and_style_front(){
+		// Register styles
+		//wp_register_style( 'front-css-'.$this->parameter["name_option"], plugins_url('/assets/css/style.css',__FILE__),'all',$this->parameter['version'] );
+		// Enqueue styles
+		//wp_enqueue_style( 'front-css-'.$this->parameter["name_option"] );
+		//wp_enqueue_script( 'front-js-'.$this->parameter["name_option"], plugins_url('/assets/js/jquery.equalizer.js',__FILE__), array( 'jquery' ), '1.2.5', true );
+	}
 
-  function script_and_style_front(){
-	// Register styles
-	//wp_register_style( 'front-css-'.$this->parameter["name_option"], plugins_url('/assets/css/style.css',__FILE__),'all',$this->parameter['version'] );
-	// Enqueue styles
-	//wp_enqueue_style( 'front-css-'.$this->parameter["name_option"] );
-	//wp_enqueue_script( 'front-js-'.$this->parameter["name_option"], plugins_url('/assets/js/jquery.equalizer.js',__FILE__), array( 'jquery' ), '1.2.5', true );
-
-  }
+ 
 
  
  

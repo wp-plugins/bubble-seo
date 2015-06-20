@@ -40,9 +40,9 @@ class ilen_seo_make{
                                  'name_option'    =>'bubble_seo',
                                  'name_plugin_url'=>'bubble-seo',
                                  'descripcion'    =>'',
-                                 'version'        =>'3.1',
+                                 'version'        =>'3.2',
                                  'url'            =>'',
-                                 'logo'           =>'<i class="fa fa-line-chart" style="padding: 13px;color: #9B9B9B;"></i>', // or image .jpg,png
+                                 'logo'           =>'<i class="fa fa-line-chart" style="padding: 13px 11px!important;color: #9B9B9B;"></i>', // or image .jpg,png
                                  'logo_text'      =>'', // alt of image
                                  'slogan'         =>'', // powered by <a href="">iLenTheme</a>
                                  'url_framework'  =>plugins_url()."/bubble-seo/assets/ilenframework",
@@ -70,6 +70,7 @@ class ilen_seo_make{
     ${'tabs_plugin_' . $this->parameter['name_option']}['tab01']=array('id'=>'tab01','name'=>'Formats','icon'=>'<i class="fa fa-circle-o"></i>','width'=>'130'); 
     ${'tabs_plugin_' . $this->parameter['name_option']}['tab02']=array('id'=>'tab02','name'=>'Meta','icon'=>'<i class="fa fa-pencil"></i>','width'=>'130'); // ,'fix'=>1
     ${'tabs_plugin_' . $this->parameter['name_option']}['tab03']=array('id'=>'tab03','name'=>'Social SEO','icon'=>'<i class="fa fa-users"></i>','width'=>'130'); 
+    ${'tabs_plugin_' . $this->parameter['name_option']}['tab05']=array('id'=>'tab05','name'=>'More','icon'=>'<i class="fa fa-plus"></i>','width'=>'130'); 
  
 
     return array('a'=>array(                'title'      => __('Basic',$this->parameter['name_option']), 
@@ -379,6 +380,37 @@ class ilen_seo_make{
                                                                     'html2' => '<strong style="font-size:15px;font-weight:bold;">Recommendation (optional)</strong><br />Go to your theme folder, find the <code>header.php</code> file and in that file look for the function <code>&lt;?php wp_head(); ?></code>, Cut it and place it just below the <code>&lt;title></code> tag. The SEO will be much faster for search engines ;)',
                                                                     'row'   =>array('a','c')),
   
+  
+
+                                                            )
+
+ 
+                                        ),
+                'f'=>array(                'title'      => __('Other options',$this->parameter['name_option']), 
+                                           'title_large'=> __('',$this->parameter['name_option']), 
+                                           'description'=> '',  
+                                           'icon'       => '',
+                                           'tab'        => 'tab05',
+
+                                            'options'    => array( 
+ 
+                                                            array(  'title' =>__('Image home (logo)',$this->parameter['name_option']),
+                                                                    'help'  =>__('The image to be displayed on social networks if you share your main url for code SEO',$this->parameter['name_option']),
+                                                                    'type'  =>'upload',
+                                                                    'value' =>$this->parameter['theme_imagen'].'/default.png',
+                                                                    'id'    =>$this->parameter['name_option'].'_'.'home_image',
+                                                                    'name'  =>$this->parameter['name_option'].'_'.'home_image',
+                                                                    'class' =>'',
+                                                                    'row'   =>array('a','b')),
+
+                                                            array(  'title' =>__('Default image post',$this->parameter['name_option']),
+                                                                    'help'  =>__('Default image in case there is no image in the post  for code SEO.',$this->parameter['name_option']),
+                                                                    'type'  =>'upload',
+                                                                    'value' =>$this->parameter['theme_imagen'].'/default.png',
+                                                                    'id'    =>$this->parameter['name_option'].'_'.'default_image',
+                                                                    'name'  =>$this->parameter['name_option'].'_'.'default_image',
+                                                                    'class' =>'',
+                                                                    'row'   =>array('a','b')),
   
 
                                                             )
