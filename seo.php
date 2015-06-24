@@ -3,7 +3,7 @@
 Plugin Name: Bubble SEO
 Plugin URI: https://wordpress.org/support/view/plugin-reviews/bubble-seo?filter=5
 Description: It's time to have a good and fast SEO (Pure SEO)
-Version: 3.2.2
+Version: 3.2.3
 Author: iLen
 Author URI: http://support.ilentheme.com
 */
@@ -90,7 +90,7 @@ function wp_generator() {
 	$meta_title_custom       = null;
 	$meta_keyword_custom     = null;
 	$meta_description_custom = null;
-	$post_type               = get_post_type( $post->ID );
+	$post_type               = isset($post->ID) && $post->ID?get_post_type( $post->ID ):rand(10000,25000);
 
 	if( $post_type == "post" || $post_type == "page" ){
 		if( isset($meta_seo[0]['keyword_seo']) && $meta_seo[0]['keyword_seo'] ){

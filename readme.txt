@@ -9,7 +9,7 @@ Author: iLen
 Requires at least: 4.0
 Tested up to: 4.2.2
 Stable tag:3.1
-Version: 3.2.2
+Version: 3.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5ZHACVPGAD6DA
@@ -53,6 +53,8 @@ Use <code>iLenFramework</code> ;) and <strong>RTL ready!</strong>
 
 
 == Changelog ==
+= 3.2.3 =
+* Fixed when "No result search or No post in archive page"
 = 3.2.2 =
 * Remove duplicate meta
 * Fixed google+ meta opcions.
