@@ -3,7 +3,7 @@
 Plugin Name: Bubble SEO
 Plugin URI: https://wordpress.org/support/view/plugin-reviews/bubble-seo?filter=5
 Description: It's time to have a good and fast SEO (Pure SEO)
-Version: 3.2.1
+Version: 3.2.2
 Author: iLen
 Author URI: http://support.ilentheme.com
 */
@@ -173,7 +173,6 @@ $meta_facebook = '
 <meta property="og:url" content="'.get_bloginfo('url').'" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="'.get_locale().'" />
-<meta property="og:site_name" content="'.get_bloginfo( 'name' ).'" />
 <meta property="og:site_name" content="'.get_bloginfo( 'name' ).'" />
 <meta property="og:image" content="'.$image_post.'" />
 ';

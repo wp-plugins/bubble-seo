@@ -40,7 +40,7 @@ class ilen_seo_make{
                                  'name_option'    =>'bubble_seo',
                                  'name_plugin_url'=>'bubble-seo',
                                  'descripcion'    =>'',
-                                 'version'        =>'3.2.1',
+                                 'version'        =>'3.2.2',
                                  'url'            =>'',
                                  'logo'           =>'<i class="fa fa-line-chart" style="padding: 13px 11px!important;color: #9B9B9B;"></i>', // or image .jpg,png
                                  'logo_text'      =>'', // alt of image
@@ -345,7 +345,6 @@ class ilen_seo_make{
                                                                     'class' =>'',
                                                                     'row'   =>array('a','b')),
 
-
                                                             )
 
  
@@ -386,7 +385,7 @@ class ilen_seo_make{
 
  
                                         ),
-                'f'=>array(                'title'      => __('Other options',$this->parameter['name_option']), 
+                'h'=>array(                'title'      => __('Other options',$this->parameter['name_option']), 
                                            'title_large'=> __('',$this->parameter['name_option']), 
                                            'description'=> '',  
                                            'icon'       => '',
