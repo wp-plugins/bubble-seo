@@ -3,7 +3,7 @@
 Plugin Name: Bubble SEO
 Plugin URI: https://wordpress.org/support/view/plugin-reviews/bubble-seo?filter=5
 Description: It's time to have a good and fast SEO (Pure SEO)
-Version: 3.2.3
+Version: 3.2.4
 Author: iLen
 Author URI: http://support.ilentheme.com
 */
