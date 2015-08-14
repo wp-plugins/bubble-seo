@@ -369,7 +369,7 @@ class ilen_seo_make{
                                                                     'row'   =>array('a','c')),
 
 
-                                                            array(  'title' =>__('Recommendation',$this->parameter['name_option']),
+                                                            /*array(  'title' =>__('Recommendation',$this->parameter['name_option']),
                                                                     'help'  =>__('',$this->parameter['name_option']),
                                                                     'type'  =>'html',
                                                                     'value' =>'',
@@ -377,7 +377,7 @@ class ilen_seo_make{
                                                                     'name'  =>$this->parameter['name_option'].'_'.'recommendation',
                                                                     'class' =>'',
                                                                     'html2' => '<strong style="font-size:15px;font-weight:bold;">Recommendation (optional)</strong><br />Go to your theme folder, find the <code>header.php</code> file and in that file look for the function <code>&lt;?php wp_head(); ?></code>, Cut it and place it just below the <code>&lt;title></code> tag. The SEO will be much faster for search engines ;)',
-                                                                    'row'   =>array('a','c')),
+                                                                    'row'   =>array('a','c')),*/
   
   
 
